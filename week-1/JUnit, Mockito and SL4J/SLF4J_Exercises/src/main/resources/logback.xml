@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  logback.xml – Exercise 3: Using Different Appenders
+  =====================================================
+  Two appenders are defined and attached to the root logger:
+
+    1. ConsoleAppender  – prints every log event to the console (stdout)
+    2. FileAppender     – writes every log event to "app.log" in the
+                          project's working directory
+
+  Root level is set to DEBUG so that ALL messages (DEBUG and above) flow
+  through both appenders.
+-->
+<configuration>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Appender 1: CONSOLE
+         Writes formatted log output to standard output (terminal).
+    ════════════════════════════════════════════════════════════════════════ -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Pattern: timestamp  [thread]  level  logger - message -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Appender 2: FILE
+         Writes the same formatted output to a persistent log file.
+         The file is created/appended in the working directory from which
+         the JVM is launched (project root when using Maven).
+    ════════════════════════════════════════════════════════════════════════ -->
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>app.log</file>
+        <!-- append=true (default) keeps previous runs in the file;
+             set to false to overwrite on each restart -->
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Root Logger
+         Level DEBUG ensures TRACE/DEBUG/INFO/WARN/ERROR all pass through.
+         Both appenders receive every qualifying log event.
+    ════════════════════════════════════════════════════════════════════════ -->
+    <root level="debug">
+        <appender-ref ref="console" />
+        <appender-ref ref="file" />
+    </root>
+
+</configuration>
