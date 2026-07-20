@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.section {
+  flex: 1;
+  padding: 20px;
+  margin:10px;
+  text-align: center;
+}
+
+.border {
+  border-left: 4px solid green;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 15px;
+}

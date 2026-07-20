@@ -1,0 +1,29 @@
+
+.mydiv{
+    text-align: center;
+    width:40vw;
+}
+
+h1{
+    color:green;
+    font-weight: bold;
+}
+table{
+    margin:20px auto;
+    padding:10px;
+    border:1px solid black;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 8px 15px;
+}
+
+th{
+    color:green;
+    font-weight:bold;
+    font-size: 18px;
+}
+td{
+    color:green;
+}
